@@ -4,7 +4,7 @@ const connection = require("./../data/DataPosts")
 function index(req, res) {
     const sql = "SELECT * FROM posts";
     connection.query(sql, (err, results) => {
-        if (err) return res.status(500).json({ error: "Failed query" });
+        if (err) return res.status(500).json({ error: "Failed to show posts" });
         res.json(results)
     })
 }
@@ -13,29 +13,26 @@ function destroy(req, res) {
     const id = parseInt(req.params.id);
     // const post = posts.find(post => post.id === id);
 
-    const sql = "DELETE FROM posts WHERE id=?"
+    const sql = "DELETE FROM posts WHERE id = ?"
     connection.query(sql, [id], (err) => {
-        if (err) return res.status(404).json({ error: "Post non trovato" });
+        if (err) return res.status(500).json({ error: "Failed to eliminate post" });
         res.status(204)
     });
 }
 
-// function show(req, res) {
-//     const id = parseInt(req.params.id);
+function show(req, res) {
+    const id = parseInt(req.params.id);
 
-//     const post = posts.find(post => post.id === id);
-//     if (!post) {
+    sql = "SELECT * FROM posts WHERE id = ?"
+    connection.query(sql, [id], (err, results) => {
+        if (err) return res.status(500).jason({ error: "Failed to show post" });
+        if (results.length === 0) res.status(404).json({ error: "Post not found" })
+        const post = results[0]
+        res.json(post)
 
-//         res.status(404);
+    })
 
-//         return res.json({
-//             error: "Non trovato",
-//             message: "Post non trovato"
-//         }
-//         )
-//     }
-//     res.json(post);
-// }
+}
 
 // function store(req, res) {
 //     // const id = parseInt(req.params.id);
@@ -144,4 +141,4 @@ function destroy(req, res) {
 
 
 // module.exports = { index, show, store, update, modify, destroy };
-module.exports = { index, destroy }
+module.exports = { index, destroy, show }

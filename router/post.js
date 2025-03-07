@@ -4,8 +4,8 @@ const postController = require("../controllers/PostController.js")
 
 // index
 router.get("/", postController.index);
-// // show
-// router.get("/:id", postController.show);
+// show
+router.get("/:id", postController.show);
 // // store
 // router.post("/", postController.store);
 // // update
