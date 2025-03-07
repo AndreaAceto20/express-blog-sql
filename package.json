@@ -1,0 +1,23 @@
+{
+  "name": "express-blog-sql",
+  "version": "1.0.0",
+  "description": "esercitazione expess-sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaAceto20/express-blog-sql.git"
+  },
+  "author": "Andrea Aceto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreaAceto20/express-blog-sql/issues"
+  },
+  "homepage": "https://github.com/AndreaAceto20/express-blog-sql#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0"
+  }
+}
