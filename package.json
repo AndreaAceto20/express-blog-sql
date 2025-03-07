@@ -4,7 +4,8 @@
   "description": "esercitazione expess-sql",
   "main": "index.js",
   "scripts": {
-    "test": "dev"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": " node --watch index"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/AndreaAceto20/express-blog-sql#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "mysql2": "^3.13.0"
   }
